@@ -33,4 +33,8 @@ habitCompletionSchema.index(
   { unique: true },
 );
 
-module.exports = mongoose.model("HabitCompletion", habitCompletionSchema);
+const HabitCompletion = mongoose.model(
+  "HabitCompletion",
+  habitCompletionSchema,
+);
+export default HabitCompletion;

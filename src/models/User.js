@@ -52,11 +52,10 @@ const userSchema = new mongoose.Schema(
   },
 );
 
-userSchema.index({ email: 1 }, { unique: true });
-
 userSchema.index(
   { "providers.provider": 1, "providers.providerId": 1 },
   { unique: true, sparse: true },
 );
 
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+export default User;

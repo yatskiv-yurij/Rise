@@ -67,4 +67,5 @@ const habitSchema = new mongoose.Schema(
 
 habitSchema.index({ userId: 1, isActive: 1 });
 
-module.exports = mongoose.model("Habit", habitSchema);
+const Habit = mongoose.model("Habit", habitSchema);
+export default Habit;
