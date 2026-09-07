@@ -2,7 +2,10 @@ import habitService from "../services/habit.service.js";
 
 export const createHabit = async (req, res) => {
   try {
-    const habit = await habitService.createHabit(req.user.userId, req.body);
+    const habit = await habitService.createHabit(
+      req.user.userId,
+      req.validated.body,
+    );
     res.status(201).json({ success: true, data: { habit } });
   } catch (error) {
     res.status(500).json({ success: false, message: "Failed to create habit" });
@@ -41,7 +44,7 @@ export const updateHabit = async (req, res) => {
     const habit = await habitService.updateHabit(
       req.user.userId,
       req.params.id,
-      req.body,
+      req.validated.body,
     );
     if (!habit) {
       return res

@@ -32,7 +32,7 @@ const updateHabit = async (userId, habitId, data) => {
       userId,
     },
     data,
-    { new: true, runValidators: true },
+    { returnDocument: "after", runValidators: true },
   );
   return habit;
 };
