@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "Rise",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^9.4.0",
     "@mui/material": "^9.4.0",
+    "@mui/material-nextjs": "^9.4.0",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8"
