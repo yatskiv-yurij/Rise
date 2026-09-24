@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Link from "next/link";
@@ -25,22 +26,15 @@ export const BrandStyled = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0, 0.5),
 }));
 
-export const BrandIconStyled = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 24,
-  height: 24,
+export const BrandIconStyled = styled(Image)(({ theme }) => ({
+  width: 34,
+  height: 34,
   borderRadius: 7,
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.background.paper,
-  fontSize: "0.7rem",
-  fontWeight: 700,
 }));
 
 export const BrandTextStyled = styled(Typography)(({ theme }) => ({
-  fontSize: "0.9rem",
-  fontWeight: 700,
+  fontSize: "1.25rem",
+  fontWeight: 600,
   letterSpacing: "-0.03em",
   color: theme.palette.text.primary,
 }));
@@ -63,12 +57,12 @@ export const NavigationLinkStyled = styled(Link, {
   textDecoration: "none",
   color: active ? theme.palette.primary.main : theme.palette.text.secondary,
   backgroundColor: active ? theme.palette.action.selected : "transparent",
-  fontSize: "0.7rem",
+  fontSize: "0.875rem",
   fontWeight: active ? 600 : 500,
   transition: "background-color 160ms ease, color 160ms ease",
 
   "& .MuiSvgIcon-root": {
-    fontSize: "16px",
+    fontSize: "18px",
   },
 
   "&:hover": {
@@ -104,25 +98,17 @@ export const ProfileInfoStyled = styled(Box)(({ theme }) => ({
   minWidth: 0,
 }));
 
-export const ProfileAvatarStyled = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 24,
-  height: 24,
-  flexShrink: 0,
+export const ProfileAvatarStyled = styled(Image)(({ theme }) => ({
+  width: 36,
+  height: 36,
   borderRadius: "50%",
-  backgroundColor: theme.palette.action.hover,
-  color: theme.palette.text.primary,
-  fontSize: "0.6rem",
-  fontWeight: 700,
 }));
 
 export const ProfileNameStyled = styled(Typography)(({ theme }) => ({
   overflow: "hidden",
   textOverflow: "ellipsis",
   whiteSpace: "nowrap",
-  fontSize: "0.65rem",
+  fontSize: "0.875rem",
   fontWeight: 600,
   color: theme.palette.text.primary,
 }));

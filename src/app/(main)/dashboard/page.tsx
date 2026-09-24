@@ -1,3 +1,5 @@
-export default function DashboarPage() {
-  return <></>;
+import DashboardPage from "./components/DashboardPage/DashboardPage";
+
+export default function Dashboard() {
+  return <DashboardPage />;
 }

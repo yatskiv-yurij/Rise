@@ -28,7 +28,12 @@ export default function Sidebar() {
   return (
     <SidebarRootStyled>
       <BrandStyled>
-        <BrandIconStyled>=</BrandIconStyled>
+        <BrandIconStyled
+          src="/rise.svg"
+          width={24}
+          height={24}
+          alt="Rise icon"
+        />
         <BrandTextStyled>Rise</BrandTextStyled>
       </BrandStyled>
       <NavigationStyled as="nav" aria-label="Mainnavigation">
@@ -54,7 +59,12 @@ export default function Sidebar() {
 
         <ProfileStyled>
           <ProfileInfoStyled>
-            <ProfileAvatarStyled>A</ProfileAvatarStyled>
+            <ProfileAvatarStyled
+              src="/avatar.png"
+              width={24}
+              height={24}
+              alt="User icon"
+            />
             <ProfileNameStyled>Alex</ProfileNameStyled>
           </ProfileInfoStyled>
 

@@ -1,11 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 import Link from "next/link";
 
 export const DrawerContentStyled = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  width: 280,
+  width: 200,
   height: "100%",
   padding: theme.spacing(3, 2),
   backgroundColor: theme.palette.background.paper,
@@ -24,22 +25,15 @@ export const DrawerBrandStyled = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-export const DrawerBrandIconStyled = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 28,
-  height: 28,
+export const DrawerBrandIconStyled = styled(Image)(({ theme }) => ({
+  width: 30,
+  height: 30,
   borderRadius: 8,
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.background.paper,
-  fontSize: "0.75rem",
-  fontWeight: 700,
 }));
 
 export const DrawerBrandTextStyled = styled(Typography)(({ theme }) => ({
-  fontSize: "0.9rem",
-  fontWeight: 700,
+  fontSize: "1.25rem",
+  fontWeight: 600,
   color: theme.palette.text.primary,
 }));
 
@@ -93,21 +87,32 @@ export const DrawerProfileStyled = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-export const DrawerAvatarStyled = styled(Box)(({ theme }) => ({
+export const DrawerWrapperStyled = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-between",
+  gap: theme.spacing(1),
+}));
+
+export const DrawerAvatarStyled = styled(Image)(({ theme }) => ({
   width: 32,
   height: 32,
   borderRadius: "50%",
-  backgroundColor: theme.palette.action.hover,
-  color: theme.palette.text.primary,
-  fontSize: "0.7rem",
-  fontWeight: 700,
 }));
 
 export const DrawerProfileNameStyled = styled(Typography)(({ theme }) => ({
-  fontSize: "0.75rem",
+  fontSize: "0.875rem",
   fontWeight: 600,
   color: theme.palette.text.primary,
+}));
+
+export const LogoutButtonStyled = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: 24,
+  height: 24,
+  border: `1px solid ${theme.palette.divider}`,
+  borderRadius: 7,
+  color: theme.palette.text.secondary,
 }));

@@ -1,5 +1,6 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 
 export const MobileHeaderStyled = styled(Box)(({ theme }) => ({
   display: "none",
@@ -23,22 +24,15 @@ export const MobileBrandStyled = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-export const MobileBrandIconStyled = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+export const MobileBrandIconStyled = styled(Image)(({ theme }) => ({
   width: 28,
-  height: 28,
+  height: 32,
   borderRadius: 8,
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.background.paper,
-  fontSize: "0.75rem",
-  fontWeight: 700,
 }));
 
 export const MobileBrandTextStyled = styled(Typography)(({ theme }) => ({
-  fontSize: "0.9rem",
-  fontWeight: 700,
+  fontSize: "1.25rem",
+  fontWeight: 600,
   color: theme.palette.text.primary,
 }));
 

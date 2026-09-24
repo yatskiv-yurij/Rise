@@ -7,7 +7,7 @@ import MobileDrawer from "@/components/MobileDrawer/MobileDrawer";
 import MobileHeader from "@/components/MobileHeader/MobileHeader";
 
 import { MainLayoutRootStyled, MainStyled } from "./main.styles";
-import { MainLayoutProps } from "./types";
+import { MainLayoutProps } from "./dashboard/types";
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

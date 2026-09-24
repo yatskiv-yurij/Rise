@@ -18,7 +18,12 @@ export default function MobileHeader({ onMenuClick }: MobileHeaderProps) {
   return (
     <MobileHeaderStyled>
       <MobileBrandStyled>
-        <MobileBrandIconStyled>~</MobileBrandIconStyled>
+        <MobileBrandIconStyled
+          src="/rise.svg"
+          width={24}
+          height={24}
+          alt="Rise icon"
+        />
         <MobileBrandTextStyled>Rise</MobileBrandTextStyled>
       </MobileBrandStyled>
 

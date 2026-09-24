@@ -11,7 +11,7 @@ export const MainStyled = styled(Box)(({ theme }) => ({
   flex: 1,
   minWidth: 0,
   minHeight: "100vh",
-  padding: theme.spacing(5),
+  padding: theme.spacing(3),
   backgroundColor: theme.palette.background.default,
 
   [theme.breakpoints.down("md")]: {
