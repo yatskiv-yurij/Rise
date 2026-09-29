@@ -6,7 +6,7 @@ export const DashboardStyled = styled(Box)(({ theme }) => ({
   margin: "0 auto",
 
   [theme.breakpoints.down("md")]: {
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 2, 4),
   },
 }));
 
@@ -18,5 +18,24 @@ export const DashboardContentStyled = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("lg")]: {
     gridTemplateColumns: "1fr",
+  },
+}));
+
+export const DashboardSidebarStyled = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: theme.spacing(4),
+  minWidth: 0,
+
+  [theme.breakpoints.down("lg")]: {
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
+    alignItems: "start",
+    gap: theme.spacing(3),
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    gridTemplateColumns: "1fr",
+    gap: theme.spacing(3),
   },
 }));

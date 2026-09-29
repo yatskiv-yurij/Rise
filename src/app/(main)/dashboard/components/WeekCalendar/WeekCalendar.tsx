@@ -1,6 +1,6 @@
 "use client";
 
-import { weekDays } from "../../constants";
+import { weekDays } from "../../../constants";
 
 import {
   ActiveWeekDayStyled,

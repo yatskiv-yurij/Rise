@@ -7,8 +7,10 @@ import RoutineSection from "../RoutineSection/RoutineSection";
 import {
   DashboardStyled,
   DashboardContentStyled,
+  DashboardSidebarStyled,
 } from "./DashboardPage.styles";
 import WeeklyFlow from "../WeeklyFlow/WeeklyFlow";
+import DailyQuote from "../DailyQuote/DailyQuote";
 
 export default function DashboardPage() {
   return (
@@ -16,13 +18,16 @@ export default function DashboardPage() {
       <DashboardHeader />
 
       <DashboardContentStyled>
-        <RoutineSection />
-
         <Box>
+          <RoutineSection />
+          <DailyQuote />
+        </Box>
+
+        <DashboardSidebarStyled>
           <DailyFocus completed={4} total={6} streak={12} />
 
           <WeeklyFlow />
-        </Box>
+        </DashboardSidebarStyled>
       </DashboardContentStyled>
     </DashboardStyled>
   );

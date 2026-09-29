@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AppThemeProvider } from "@/theme/ThemeProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
+import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable}`}>
         <AppRouterCacheProvider>
-          <AppThemeProvider>{children}</AppThemeProvider>
+          <AuthProvider>
+            <AppThemeProvider>{children}</AppThemeProvider>
+          </AuthProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

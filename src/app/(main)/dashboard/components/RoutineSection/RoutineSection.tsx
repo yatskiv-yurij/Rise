@@ -10,7 +10,7 @@ import {
   RoutineTitleStyled,
 } from "./RoutineSection.styles";
 
-import { habits } from "../../constants";
+import { habits } from "../../../constants";
 
 export default function RoutineSection() {
   return (

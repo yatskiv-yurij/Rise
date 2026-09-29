@@ -13,7 +13,7 @@ import {
   HabitTitleRowStyled,
 } from "./HabitRow.styles";
 
-import { HabitRowProps } from "../../types";
+import { HabitRowProps } from "../../../types";
 
 export default function HabitRow({ habit }: HabitRowProps) {
   return (

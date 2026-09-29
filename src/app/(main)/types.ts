@@ -22,3 +22,8 @@ export type DailyFocusProps = {
   total: number;
   streak: number;
 };
+
+export interface Quote {
+  text: string;
+  author: string;
+}

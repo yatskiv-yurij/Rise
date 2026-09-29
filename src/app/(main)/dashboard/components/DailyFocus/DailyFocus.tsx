@@ -10,7 +10,7 @@ import {
   StreakBadgeStyled,
 } from "./DailyFocus.styles";
 
-import { DailyFocusProps } from "../../types";
+import { DailyFocusProps } from "../../../types";
 
 export default function DailyFocus({
   completed,
