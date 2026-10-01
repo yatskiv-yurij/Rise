@@ -1,4 +1,5 @@
 import {
+  Alert,
   Box,
   Button,
   IconButton,
@@ -245,5 +246,22 @@ export const RegisterButtonStyled = styled(Button)(({ theme }) => ({
 
   "&:hover": {
     backgroundColor: "transparent",
+  },
+}));
+
+export const FormErrorStyled = styled(Alert)(({ theme }) => ({
+  marginTop: theme.spacing(-0.5),
+  borderRadius: theme.shape.borderRadius,
+  fontSize: "0.875rem",
+  display: "flex",
+  gap: "10px",
+  alignItems: "center",
+
+  "& .MuinAlert-icon": {
+    fontSize: "18px",
+  },
+
+  "& .MuiAlert-message": {
+    padding: 0,
   },
 }));

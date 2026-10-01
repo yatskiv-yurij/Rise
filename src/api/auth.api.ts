@@ -9,16 +9,13 @@ import type {
 
 export const authApi = {
   async signIn(payload: SignInPayload): Promise<AuthResponse> {
-    const { data } = await apiClient.post<AuthResponse>(
-      "/auth/signin",
-      payload,
-    );
+    const { data } = await apiClient.post<AuthResponse>("/auth/login", payload);
     return data;
   },
 
   async signUp(payload: SignUpPayload): Promise<AuthResponse> {
     const { data } = await apiClient.post<AuthResponse>(
-      "/auth/signup",
+      "/auth/register",
       payload,
     );
     return data;

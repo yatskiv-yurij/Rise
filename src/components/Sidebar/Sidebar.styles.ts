@@ -112,14 +112,3 @@ export const ProfileNameStyled = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
   color: theme.palette.text.primary,
 }));
-
-export const LogoutButtonStyled = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 24,
-  height: 24,
-  border: `1px solid ${theme.palette.divider}`,
-  borderRadius: 7,
-  color: theme.palette.text.secondary,
-}));

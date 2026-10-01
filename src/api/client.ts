@@ -3,7 +3,7 @@ import axios from "axios";
 import { authStorage } from "@/utils/authStorage";
 
 export const apiClient = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     "Content-Type": "application/json",
   },

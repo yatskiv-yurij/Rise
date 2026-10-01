@@ -1,49 +1,25 @@
 "use client";
 
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-import { useAppTheme } from "@/theme/ThemeProvider";
-
-import {
-  ContentStyled,
-  PageStyled,
-  SecondaryTextStyled,
-  ThemeTestCardStyled,
-} from "./page.styles";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function HomePage() {
-  const { mode, setMode } = useAppTheme();
+  const router = useRouter();
 
-  return (
-    <PageStyled>
-      <Container maxWidth="md">
-        <ContentStyled>
-          <Stack spacing={3} sx={{ width: "100%" }}>
-            <Box>
-              <Typography variant="h1">Rise</Typography>
-              <SecondaryTextStyled>
-                Small habits.Big changes
-              </SecondaryTextStyled>
-            </Box>
+  const { isAuthenticated, isLoading } = useAuth();
 
-            <Typography>
-              Theme now: <strong>{mode}</strong>
-            </Typography>
+  useEffect(() => {
+    if (isLoading) return;
 
-            <ThemeTestCardStyled>
-              <Button variant="contained" onClick={() => setMode("light")}>
-                Light
-              </Button>
-              <Button variant="outlined" onClick={() => setMode("dark")}>
-                Dark
-              </Button>
-              <Button variant="text" onClick={() => setMode("system")}>
-                System
-              </Button>
-            </ThemeTestCardStyled>
-          </Stack>
-        </ContentStyled>
-      </Container>
-    </PageStyled>
-  );
+    if (isAuthenticated) {
+      router.replace("/dashboard");
+      return;
+    }
+
+    router.replace("/login");
+  }, [isAuthenticated, isLoading, router]);
+
+  return null;
 }

@@ -1,14 +1,11 @@
 "use client";
 
-import { BarChartOutlined, LogoutOutlined } from "@mui/icons-material";
-
 import { usePathname } from "next/navigation";
 
 import {
   BrandIconStyled,
   BrandStyled,
   BrandTextStyled,
-  LogoutButtonStyled,
   NavigationLinkStyled,
   NavigationStyled,
   ProfileDividerStyled,
@@ -21,6 +18,7 @@ import {
 } from "./Sidebar.styles";
 
 import { navigationItems } from "@/app/constants";
+import Logout from "../Logout/Logout";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -68,9 +66,7 @@ export default function Sidebar() {
             <ProfileNameStyled>Alex</ProfileNameStyled>
           </ProfileInfoStyled>
 
-          <LogoutButtonStyled aria-label="Logout">
-            <LogoutOutlined sx={{ fontSize: 14 }} />
-          </LogoutButtonStyled>
+          <Logout />
         </ProfileStyled>
       </SidebarBottomStyled>
     </SidebarRootStyled>

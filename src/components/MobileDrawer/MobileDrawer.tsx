@@ -1,6 +1,6 @@
 "use client";
 
-import { Close, LogoutOutlined } from "@mui/icons-material";
+import { Close } from "@mui/icons-material";
 import { Drawer, IconButton } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -20,8 +20,8 @@ import {
   DrawerProfileNameStyled,
   DrawerProfileStyled,
   DrawerWrapperStyled,
-  LogoutButtonStyled,
 } from "./MobileDrawer.styles";
+import Logout from "../Logout/Logout";
 
 type MobileDrawerProps = {
   open: boolean;
@@ -89,9 +89,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               />
               <DrawerProfileNameStyled>Alex</DrawerProfileNameStyled>
             </DrawerProfileStyled>
-            <LogoutButtonStyled aria-label="Logout">
-              <LogoutOutlined sx={{ fontSize: 14 }} />
-            </LogoutButtonStyled>
+            <Logout />
           </DrawerWrapperStyled>
         </DrawerBottomStyled>
       </DrawerContentStyled>
