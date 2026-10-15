@@ -9,5 +9,5 @@ export const LogoutButtonStyled = styled(Box)(({ theme }) => ({
   height: 24,
   border: `1px solid ${theme.palette.divider}`,
   borderRadius: 7,
-  color: "#fff",
+  color: theme.palette.text.primary,
 }));

@@ -7,10 +7,13 @@ export type MainLayoutProps = {
 export type HabitRowData = {
   id: string;
   name: string;
+  description: string;
   category: string;
-  time: string;
+  icon: string;
+  color: string;
+  scheduledTime: string | null;
   completed: boolean;
-  completedAt?: string;
+  completedAt: string | null;
 };
 
 export type HabitRowProps = {

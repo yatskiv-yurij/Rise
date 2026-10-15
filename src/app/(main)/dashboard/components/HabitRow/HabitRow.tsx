@@ -31,12 +31,14 @@ export default function HabitRow({ habit }: HabitRowProps) {
           <HabitNameStyled completed={habit.completed}>
             {habit.name}
           </HabitNameStyled>
-          <HabitCategoryStyled>{habit.category}</HabitCategoryStyled>
+          <HabitCategoryStyled sx={{ backgroundColor: habit.color }}>
+            {habit.category}
+          </HabitCategoryStyled>
         </HabitTitleRowStyled>
 
         <HabitMetaStyled>
           <AccessTime sx={{ fontSize: 12 }} />
-          <HabitTimeStyled>{habit.time}</HabitTimeStyled>
+          <HabitTimeStyled>{habit?.scheduledTime}</HabitTimeStyled>
         </HabitMetaStyled>
       </HabitContentStyled>
 

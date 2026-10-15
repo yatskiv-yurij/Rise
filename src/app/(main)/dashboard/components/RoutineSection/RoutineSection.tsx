@@ -10,9 +10,14 @@ import {
   RoutineTitleStyled,
 } from "./RoutineSection.styles";
 
-import { habits } from "../../../constants";
+import type { DashboardHabit } from "@/types/dashboard";
 
-export default function RoutineSection() {
+type RoutineSectionProps = {
+  habits: DashboardHabit[];
+};
+
+export default function RoutineSection({ habits }: RoutineSectionProps) {
+ 
   return (
     <RoutineSectionStyled>
       <RoutineHeaderStyled>
@@ -24,7 +29,7 @@ export default function RoutineSection() {
       </RoutineHeaderStyled>
 
       <HabitListStyled>
-        {habits.map((habit) => (
+        {habits?.map((habit) => (
           <HabitRow key={habit.id} habit={habit} />
         ))}
       </HabitListStyled>

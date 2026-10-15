@@ -10,6 +10,13 @@ export const DashboardStyled = styled(Box)(({ theme }) => ({
   },
 }));
 
+export const LoadingBoxStyled = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "60vh",
+}));
+
 export const DashboardContentStyled = styled(Box)(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "minmax(0, 1fr) 480px",

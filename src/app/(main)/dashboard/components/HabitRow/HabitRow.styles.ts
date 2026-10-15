@@ -92,7 +92,7 @@ export const HabitCategoryStyled = styled(Typography)(({ theme }) => ({
   letterSpacing: "0.04em",
   textTransform: "uppercase",
 
-  color: theme.palette.text.secondary,
+  color: "#ffffff",
   backgroundColor: theme.palette.action.hover,
 }));
 
