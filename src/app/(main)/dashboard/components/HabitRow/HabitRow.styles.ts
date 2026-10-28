@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, ButtonBase, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const HabitRowStyled = styled(Box)(({ theme }) => ({
@@ -29,7 +29,7 @@ export const HabitTimeLineStyled = styled(Box)(({ theme }) => ({
   justifyContent: "center",
 }));
 
-export const HabitStatusStyled = styled(Box, {
+export const HabitStatusStyled = styled(ButtonBase, {
   shouldForwardProp: (prop) => prop !== "completed",
 })<{ completed?: boolean }>(({ theme, completed }) => ({
   position: "relative",

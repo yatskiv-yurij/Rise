@@ -1,3 +1,5 @@
+"use client";
+
 import { AccessTime, TaskAlt } from "@mui/icons-material";
 
 import {
@@ -15,11 +17,33 @@ import {
 
 import { HabitRowProps } from "../../../types";
 
-export default function HabitRow({ habit }: HabitRowProps) {
+const time = (timestamp: string) => {
+  return new Date(timestamp).toLocaleTimeString("uk-UA", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+};
+
+export default function HabitRow({
+  habit,
+  onToggle,
+  isUpdating = false,
+}: HabitRowProps) {
   return (
     <HabitRowStyled>
       <HabitTimeLineStyled>
-        <HabitStatusStyled completed={habit.completed}>
+        <HabitStatusStyled
+          completed={habit.completed}
+          as="button"
+          onClick={() => onToggle(habit)}
+          disabled={isUpdating}
+          aria-label={
+            habit.completed
+              ? `Mark ${habit.name} as incomplete`
+              : `Mark ${habit.name} as complete`
+          }
+          aria-pressed={habit.completed}>
           {habit.completed && (
             <TaskAlt fontSize="small" sx={{ fontSize: 14, color: "#fff" }} />
           )}
@@ -43,7 +67,9 @@ export default function HabitRow({ habit }: HabitRowProps) {
       </HabitContentStyled>
 
       <HabitResultStyled completed={habit.completed}>
-        {habit.completed ? `Completed at ${habit.completedAt}` : "Upcoming"}
+        {habit.completed
+          ? `Completed at ${time(habit.completedAt ? habit.completedAt : "")}`
+          : "Upcoming"}
       </HabitResultStyled>
     </HabitRowStyled>
   );

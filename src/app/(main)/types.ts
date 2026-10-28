@@ -1,3 +1,4 @@
+import { DashboardHabit } from "@/types/dashboard";
 import { ReactNode } from "react";
 
 export type MainLayoutProps = {
@@ -18,6 +19,8 @@ export type HabitRowData = {
 
 export type HabitRowProps = {
   habit: HabitRowData;
+  onToggle: (habit: DashboardHabit) => void;
+  isUpdating?: boolean;
 };
 
 export type DailyFocusProps = {

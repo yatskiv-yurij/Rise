@@ -12,14 +12,25 @@ import {
 } from "./DashboardPage.styles";
 import WeeklyFlow from "../WeeklyFlow/WeeklyFlow";
 import DailyQuote from "../DailyQuote/DailyQuote";
-import { DashboardData } from "@/types/dashboard";
-import { useEffect, useState } from "react";
+import { DashboardData, DashboardHabit } from "@/types/dashboard";
+import { useEffect, useState, useCallback } from "react";
 import { dashboardApi } from "@/api/dashboard.api";
+import { completionsApi } from "@/api/completions.api";
+
+function getLocalDate(): string {
+  const today = new Date();
+  return [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0"),
+  ].join("-");
+}
 
 export default function DashboardPage() {
   const [dashboard, setDashboard] = useState<DashboardData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [updatingHabitIds, setUpdatingHabitIds] = useState<string[]>([]);
 
   useEffect(() => {
     const loadDashboard = async () => {
@@ -28,7 +39,6 @@ export default function DashboardPage() {
 
         const response = await dashboardApi.getDashboard();
         setDashboard(response.data);
-        console.log(response);
       } catch {
         setError(
           "Dashboard could not be loaded. Please try refreshing the page",
@@ -40,6 +50,70 @@ export default function DashboardPage() {
 
     loadDashboard();
   }, []);
+
+  const handleToggleHabit = useCallback(
+    async (habit: DashboardHabit) => {
+      if (!dashboard || updatingHabitIds.includes(habit.id)) {
+        return;
+      }
+
+      const date = dashboard.date || getLocalDate();
+
+      setError("");
+      setUpdatingHabitIds((ids) => [...ids, habit.id]);
+
+      try {
+        if (habit.completed) {
+          await completionsApi.uncompleteHabit({
+            habitId: habit.id,
+            date,
+          });
+        } else {
+          await completionsApi.completeHabit({
+            habitId: habit.id,
+            date,
+          });
+        }
+
+        setDashboard((current) => {
+          if (!current) {
+            return current;
+          }
+
+          const habits = current.habits.map((item) =>
+            item.id === habit.id
+              ? {
+                  ...item,
+                  completed: !habit.completed,
+                  completedAt: habit.completed
+                    ? null
+                    : new Date().toISOString(),
+                }
+              : item,
+          );
+
+          const completed = habits.filter((item) => item.completed).length;
+          const total = habits.length;
+
+          return {
+            ...current,
+            habits,
+            progress: {
+              completed,
+              total,
+              percentage:
+                total === 0 ? 0 : Math.round((completed / total) * 100),
+            },
+          };
+        });
+      } catch {
+        setError(`Could not update "${habit.name}". Please try again.`);
+      } finally {
+        setUpdatingHabitIds((ids) => ids.filter((id) => id !== habit.id));
+      }
+    },
+    [dashboard, updatingHabitIds],
+  );
 
   if (isLoading) {
     <DashboardStyled>
@@ -65,7 +139,11 @@ export default function DashboardPage() {
 
       <DashboardContentStyled>
         <Box>
-          <RoutineSection habits={dashboard.habits} />
+          <RoutineSection
+            habits={dashboard.habits}
+            onToggleHabit={handleToggleHabit}
+            updatingHabitIds={updatingHabitIds}
+          />
           <DailyQuote />
         </Box>
 
