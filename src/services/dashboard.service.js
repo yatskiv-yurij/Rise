@@ -52,7 +52,7 @@ const getDashboard = async (userId, date) => {
       color: habit.color,
       scheduledTime: habit.scheduledTime,
       completed: Boolean(completion),
-      completedAt: completion ? completion.completetedAt : null,
+      completedAt: completion ? completion.completedAt : null,
     };
   });
 
